@@ -22,9 +22,10 @@ pluginManagement {
         maven {
             name = "kotlinRepoTools"
             url = java.net.URI("https://d2gys1nrxnjnyg.cloudfront.net/releases")
-            content {
-                includeGroupByRegex("""aws\.sdk\.kotlin.*""")
-            }
+//            content {
+//                includeGroupByRegex("""aws\.sdk\.kotlin.*""")
+//                includeGroupByRegex("""org\.jetbrains\.kotlinx.*""")
+//            }
         }
     }
     resolutionStrategy {
@@ -55,9 +56,10 @@ dependencyResolutionManagement {
         maven {
             name = "kotlinRepoTools"
             url = java.net.URI("https://d2gys1nrxnjnyg.cloudfront.net/releases")
-            content {
-                includeGroupByRegex("""aws\.sdk\.kotlin.*""")
-            }
+//            content {
+//                includeGroupByRegex("""aws\.sdk\.kotlin.*""")
+//                includeGroupByRegex("""org\.jetbrains\.kotlinx.*""")
+//            }
         }
     }
 }

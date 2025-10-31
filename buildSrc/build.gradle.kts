@@ -4,11 +4,21 @@
  */
 
 plugins {
-    alias(libs.plugins.kotlin.jvm)
+//    alias(libs.plugins.kotlin.jvm)
     `kotlin-dsl`
 }
 
 repositories {
+    maven("https://mirrors.tencent.com/nexus/repository/maven-public")
+    maven {
+        isAllowInsecureProtocol = true
+        name = "Nenus"
+        setUrl("http://maven.cloud.cicoe.net/repository/kmp/")
+        credentials {
+            username = "kmp2"
+            password = "notekmp1504"
+        }
+    }
     mavenCentral()
     gradlePluginPortal()
 }

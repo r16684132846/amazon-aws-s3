@@ -6,7 +6,7 @@
 plugins {
     `kotlin-dsl`
     `java-gradle-plugin`
-    alias(libs.plugins.kotlinx.serialization)
+//    alias(libs.plugins.kotlinx.serialization)
 }
 
 group = "aws.sdk.kotlin"
