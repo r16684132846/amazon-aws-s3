@@ -1,0 +1,37 @@
+public class aws/sdk/kotlin/runtime/AwsErrorMetadata : aws/smithy/kotlin/runtime/ServiceErrorMetadata {
+	public fun <init> ()V
+}
+
+public class aws/sdk/kotlin/runtime/AwsServiceException : aws/smithy/kotlin/runtime/ServiceException {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public fun <init> (Ljava/lang/Throwable;)V
+	public fun getSdkErrorMetadata ()Laws/sdk/kotlin/runtime/AwsErrorMetadata;
+	public synthetic fun getSdkErrorMetadata ()Laws/smithy/kotlin/runtime/ErrorMetadata;
+	public synthetic fun getSdkErrorMetadata ()Laws/smithy/kotlin/runtime/ServiceErrorMetadata;
+}
+
+public class aws/sdk/kotlin/runtime/ClientException : aws/smithy/kotlin/runtime/ClientException {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public fun <init> (Ljava/lang/Throwable;)V
+}
+
+public class aws/sdk/kotlin/runtime/ConfigurationException : aws/sdk/kotlin/runtime/ClientException {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public fun <init> (Ljava/lang/Throwable;)V
+}
+
+public abstract interface annotation class aws/sdk/kotlin/runtime/InternalSdkApi : java/lang/annotation/Annotation {
+}
+
+public final class aws/sdk/kotlin/runtime/client/AwsClientOption {
+	public static final field INSTANCE Laws/sdk/kotlin/runtime/client/AwsClientOption;
+	public final fun getAccountId ()Laws/smithy/kotlin/runtime/collections/AttributeKey;
+	public final fun getRegion ()Laws/smithy/kotlin/runtime/collections/AttributeKey;
+}
+

@@ -1,0 +1,31 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+      - '!*.main'
+  pull_request:
+    branches:
+      - main
+      - '*-main'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PACKAGE_NAME: aws-sdk-kotlin
+
+jobs:
+  ktlint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v4
+    - name: Configure Gradle
+      uses: aws/aws-kotlin-repo-tools/.github/actions/configure-gradle@main
+    - name: Lint ${{ env.PACKAGE_NAME }}
+      run: |
+        ./gradlew ktlint

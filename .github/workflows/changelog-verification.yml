@@ -1,0 +1,24 @@
+name: Changelog verification
+
+permissions:
+  id-token: write
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened, labeled, unlabeled ]
+    branches:
+      - main
+      - '*-main'
+
+jobs:
+  changelog-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
+          aws-region: us-west-2
+
+      - name: Verify changelog
+        uses: aws/aws-kotlin-repo-tools/.github/actions/changelog-verification@main

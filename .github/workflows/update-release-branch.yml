@@ -1,0 +1,143 @@
+name: Update release branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: |
+          The merge commit message to use for non fast-forward merges.
+        required: false
+        type: string
+      dry_run:
+        description: Dry runs will only attempt to merge but the result will not be pushed to the release branch
+        required: true
+        type: boolean
+        default: false
+  schedule:
+    - cron: "0 7 * * 1-5"  # At 07:00 UTC (00:00 PST, 03:00 EST), Monday through Friday
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: release-manual-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set start timestamp
+        id: start
+        run: printf 'timestamp=%(%s)T\n' >> "$GITHUB_OUTPUT"
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
+          aws-region: us-west-2
+      - name: Setup kat
+        uses: aws/aws-kotlin-repo-tools/.github/actions/setup-kat@main
+      - uses: actions/checkout@v4
+        with:
+          ref: 'main'
+          fetch-depth: 0
+          token: ${{ secrets.CI_USER_PAT }}
+      - name: Configure Git
+        shell: bash
+        run: |
+          git config user.name aws-sdk-kotlin-ci 
+          git config user.email "aws-kotlin-sdk-automation@amazon.com"
+      - name: Configure JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: 17
+          cache: 'gradle'
+      - name: Configure Gradle
+        uses: aws/aws-kotlin-repo-tools/.github/actions/configure-gradle@main
+      - name: Check merge base
+        shell: bash
+        run: |
+          git status
+          git branch -vv
+          git fetch
+          main_sha=$(git rev-parse main)
+          release_sha=$(git rev-parse origin/release)
+          echo "main_sha=$main_sha" >> $GITHUB_ENV
+          echo "release_sha=$release_sha" >> $GITHUB_ENV
+          if git merge-base --is-ancestor $main_sha $release_sha; then
+              echo "main@$main_sha already exists in origin/release, nothing to update";
+              echo "MERGE_NEEDED=false" >> $GITHUB_ENV;
+          else
+              echo "MERGE_NEEDED=true" >> $GITHUB_ENV
+          fi
+      - name: Release Check - snapshot versions
+        if: env.MERGE_NEEDED == 'true'
+        run: |
+          # We aren't releasable if we (1) directly depend on a snapshot version of a dependency OR (2) can't build the project without unreleased changes
+          if grep -q -i snapshot ./gradle/libs.versions.toml; then
+            echo "::error ::found snapshot version in libs.versions.toml"
+            exit 1
+          fi
+      - name: Release Check - build
+        if: env.MERGE_NEEDED == 'true'
+        run: |
+          # Our CI is implemented as a "live at HEAD" model where we build against the latest of all our 1P deps (either
+          # main branch or matching branch name). Double check that without this "live at HEAD" mode we still build 
+          # successfully (which is how it is built during release).
+          # This should help prevent the cases where we forgot to bump smithy-kotlin versions and don't catch it
+          # because CI is masking it
+          ./gradlew -Paws.kotlin.native=false test jvmTest
+      - name: Release Check - build an SDK client
+        if: env.MERGED_NEEDED == 'true'
+        shell: bash
+        run: |
+          # Additionally generate and build a service client to confirm that codegen and build works
+          # without "live at HEAD" mode.
+          ./gradlew -Paws.services=s3 -Paws.kotlin.native=false bootstrap; 
+          ./gradlew -Paws.kotlin.native=false build;
+      - name: Merge
+        if: env.MERGE_NEEDED == 'true'
+        shell: bash
+        run: |
+          echo "merging main @ $main_sha into release @ $release_sha";
+          
+          # Getting rid of the Gradle URL config changes caused by "Configure Gradle"
+          git stash -- gradle/wrapper/gradle-wrapper.properties
+          
+          git switch release;
+          input_message=${{ inputs.commit_message }}
+          message=${input_message:-"Merging main into release"}
+          echo "message=$message"
+          git merge -m "$message" main;
+          if [ "${{ env.DRY_RUN }}" == "true" ]; then
+            echo "dry run, skipping push to remote";
+            git log -n 10 --oneline;
+          else
+            echo "pushing changes to release branch";
+            git push origin release;
+          fi
+      - name: Calculate duration
+        id: end
+        run: |
+          printf -v now '%(%s)T'
+          duration=$(( now - ${{ steps.start.outputs.timestamp }} ))
+          echo "duration=$duration" >> "$GITHUB_OUTPUT"
+      - name: Emit metrics
+        if: always() # run this step even if previous steps failed or the job is canceled
+        uses: aws/aws-kotlin-repo-tools/.github/actions/emit-metrics@main
+        with:
+          namespace: CI Metrics
+          dimensions: |
+            Product=aws-sdk-kotlin
+            Trigger=${{ github.event_name == 'schedule' && 'schedule' || 'manual' }}
+          metrics: |
+            ReleaseMergeAttempted:1:Count
+            ReleaseMergeSucceeded:${{ job.status == 'success' && '1' || '0' }}:Count
+            ReleaseMergeCanceled:${{ job.status == 'cancelled' && '1' || '0' }}:Count
+            ReleaseMergeFailed:${{ job.status == 'failure' && '1' || '0' }}:Count
+            ReleaseMergeDuration:${{ steps.end.outputs.duration }}:Seconds

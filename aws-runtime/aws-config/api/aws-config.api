@@ -1,0 +1,634 @@
+public final class aws/sdk/kotlin/runtime/auth/credentials/AssumeRoleParameters {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/List;Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/List;Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDuration-UwyO8pc ()J
+	public final fun getExternalId ()Ljava/lang/String;
+	public final fun getPolicy ()Ljava/lang/String;
+	public final fun getPolicyArns ()Ljava/util/List;
+	public final fun getRoleArn ()Ljava/lang/String;
+	public final fun getRoleSessionName ()Ljava/lang/String;
+	public final fun getSerialNumber ()Ljava/lang/String;
+	public final fun getSourceIdentity ()Ljava/lang/String;
+	public final fun getTags ()Ljava/util/Map;
+	public final fun getTokenCode ()Ljava/lang/String;
+	public final fun getTransitiveTagKeys ()Ljava/util/List;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/AssumeRoleWithWebIdentityParameters {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDuration-UwyO8pc ()J
+	public final fun getPolicy ()Ljava/lang/String;
+	public final fun getPolicyArns ()Ljava/util/List;
+	public final fun getProviderId ()Ljava/lang/String;
+	public final fun getRoleArn ()Ljava/lang/String;
+	public final fun getRoleSessionName ()Ljava/lang/String;
+	public final fun getWebIdentityTokenFilePath ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/CredentialsNotLoadedException : aws/sdk/kotlin/runtime/ClientException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/DefaultChainBearerTokenProvider : aws/smithy/kotlin/runtime/http/auth/CloseableBearerTokenProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun getHttpClient ()Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public final fun getProfileName ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/DefaultChainCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CloseableCredentialsProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public final fun getProfileName ()Ljava/lang/String;
+	public final fun getRegion ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/EcsCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CloseableCredentialsProvider {
+	public fun <init> ()V
+	public fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/smithy/kotlin/runtime/net/HostResolver;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/smithy/kotlin/runtime/net/HostResolver;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/EnvironmentCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getGetEnv ()Lkotlin/jvm/functions/Function1;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/ImdsCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CloseableCredentialsProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Lkotlin/Lazy;Laws/smithy/kotlin/runtime/util/PlatformEnvironProvider;Laws/smithy/kotlin/runtime/time/Clock;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/Lazy;Laws/smithy/kotlin/runtime/util/PlatformEnvironProvider;Laws/smithy/kotlin/runtime/time/Clock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun getClient ()Lkotlin/Lazy;
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformEnvironProvider;
+	public final fun getProfileOverride ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/InvalidJsonCredentialsException : aws/sdk/kotlin/runtime/ClientException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/InvalidSsoTokenException : aws/sdk/kotlin/runtime/ConfigurationException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/ProcessCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider {
+	public fun <init> (Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;JJ)V
+	public synthetic fun <init> (Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/ProfileCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CloseableCredentialsProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun getConfigurationSource ()Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;
+	public final fun getHttpClient ()Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public final fun getProfileName ()Ljava/lang/String;
+	public final fun getRegion ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/ProviderConfigurationException : aws/sdk/kotlin/runtime/ConfigurationException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/SsoCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/time/Clock;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/time/Clock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAccountId ()Ljava/lang/String;
+	public final fun getHttpClient ()Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public final fun getRoleName ()Ljava/lang/String;
+	public final fun getSsoRegion ()Ljava/lang/String;
+	public final fun getSsoSessionName ()Ljava/lang/String;
+	public final fun getStartUrl ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/SsoTokenProvider : aws/smithy/kotlin/runtime/http/auth/BearerTokenProvider {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/time/Clock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/time/Clock;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getHttpClient ()Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public final fun getRefreshBufferWindow-UwyO8pc ()J
+	public final fun getSsoRegion ()Ljava/lang/String;
+	public final fun getSsoSessionName ()Ljava/lang/String;
+	public final fun getStartUrl ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/StaticCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider {
+	public static final field Companion Laws/sdk/kotlin/runtime/auth/credentials/StaticCredentialsProvider$Companion;
+	public synthetic fun <init> (Laws/sdk/kotlin/runtime/auth/credentials/StaticCredentialsProvider$Builder;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Laws/smithy/kotlin/runtime/auth/awscredentials/Credentials;)V
+	public final fun getCredentials ()Laws/smithy/kotlin/runtime/auth/awscredentials/Credentials;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/StaticCredentialsProvider$Builder {
+	public fun <init> ()V
+	public final fun build ()Laws/sdk/kotlin/runtime/auth/credentials/StaticCredentialsProvider;
+	public final fun getAccessKeyId ()Ljava/lang/String;
+	public final fun getAccountId ()Ljava/lang/String;
+	public final fun getSecretAccessKey ()Ljava/lang/String;
+	public final fun getSessionToken ()Ljava/lang/String;
+	public final fun setAccessKeyId (Ljava/lang/String;)V
+	public final fun setAccountId (Ljava/lang/String;)V
+	public final fun setSecretAccessKey (Ljava/lang/String;)V
+	public final fun setSessionToken (Ljava/lang/String;)V
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/StaticCredentialsProvider$Companion {
+	public final fun invoke (Lkotlin/jvm/functions/Function1;)Laws/sdk/kotlin/runtime/auth/credentials/StaticCredentialsProvider;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/StsAssumeRoleCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider {
+	public fun <init> (Laws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider;Laws/sdk/kotlin/runtime/auth/credentials/AssumeRoleParameters;Ljava/lang/String;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider;Laws/sdk/kotlin/runtime/auth/credentials/AssumeRoleParameters;Ljava/lang/String;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAssumeRoleParameters ()Laws/sdk/kotlin/runtime/auth/credentials/AssumeRoleParameters;
+	public final fun getBootstrapCredentialsProvider ()Laws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider;
+	public final fun getHttpClient ()Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;
+	public final fun getRegion ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/StsWebIdentityCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider {
+	public static final field Companion Laws/sdk/kotlin/runtime/auth/credentials/StsWebIdentityCredentialsProvider$Companion;
+	public fun <init> (Laws/sdk/kotlin/runtime/auth/credentials/AssumeRoleWithWebIdentityParameters;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Laws/sdk/kotlin/runtime/auth/credentials/AssumeRoleWithWebIdentityParameters;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getHttpClient ()Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public final fun getRegion ()Ljava/lang/String;
+	public final fun getWebIdentityParameters ()Laws/sdk/kotlin/runtime/auth/credentials/AssumeRoleWithWebIdentityParameters;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/StsWebIdentityCredentialsProvider$Companion {
+	public final fun fromEnvironment-TUY-ock (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;)Laws/sdk/kotlin/runtime/auth/credentials/StsWebIdentityCredentialsProvider;
+	public static synthetic fun fromEnvironment-TUY-ock$default (Laws/sdk/kotlin/runtime/auth/credentials/StsWebIdentityCredentialsProvider$Companion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLaws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;ILjava/lang/Object;)Laws/sdk/kotlin/runtime/auth/credentials/StsWebIdentityCredentialsProvider;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/StsWebIdentityProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CloseableCredentialsProvider {
+	public fun <init> ()V
+	public fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Ljava/lang/String;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun getHttpClient ()Laws/smithy/kotlin/runtime/http/engine/HttpClientEngine;
+	public final fun getPlatformProvider ()Laws/smithy/kotlin/runtime/util/PlatformProvider;
+	public final fun getRegion ()Ljava/lang/String;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/SystemPropertyCredentialsProvider : aws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getGetProperty ()Lkotlin/jvm/functions/Function1;
+	public fun resolve (Laws/smithy/kotlin/runtime/collections/Attributes;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/internal/ManagedBearerTokenProviderKt {
+	public static final fun manage (Laws/smithy/kotlin/runtime/http/auth/CloseableBearerTokenProvider;)Laws/smithy/kotlin/runtime/http/auth/BearerTokenProvider;
+}
+
+public final class aws/sdk/kotlin/runtime/auth/credentials/internal/ManagedCredentialsProviderKt {
+	public static final fun manage (Laws/smithy/kotlin/runtime/auth/awscredentials/CloseableCredentialsProvider;)Laws/smithy/kotlin/runtime/auth/awscredentials/CredentialsProvider;
+}
+
+public abstract class aws/sdk/kotlin/runtime/config/AbstractAwsSdkClientFactory : aws/smithy/kotlin/runtime/client/AbstractSdkClientFactory {
+	public fun <init> ()V
+	protected fun finalizeEnvironmentalConfig (Laws/smithy/kotlin/runtime/client/SdkClient$Builder;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun fromEnvironment (Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun fromEnvironment$default (Laws/sdk/kotlin/runtime/config/AbstractAwsSdkClientFactory;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class aws/sdk/kotlin/runtime/config/AwsSdkClientConfig : aws/smithy/kotlin/runtime/client/SdkClientConfig {
+	public abstract fun getApplicationId ()Ljava/lang/String;
+	public abstract fun getRegion ()Ljava/lang/String;
+	public abstract fun getRegionProvider ()Laws/smithy/kotlin/runtime/client/region/RegionProvider;
+	public abstract fun getUseDualStack ()Z
+	public abstract fun getUseFips ()Z
+}
+
+public abstract interface class aws/sdk/kotlin/runtime/config/AwsSdkClientConfig$Builder {
+	public abstract fun getApplicationId ()Ljava/lang/String;
+	public abstract fun getRegion ()Ljava/lang/String;
+	public abstract fun getRegionProvider ()Laws/smithy/kotlin/runtime/client/region/RegionProvider;
+	public abstract fun getUseDualStack ()Ljava/lang/Boolean;
+	public abstract fun getUseFips ()Ljava/lang/Boolean;
+	public abstract fun setApplicationId (Ljava/lang/String;)V
+	public abstract fun setRegion (Ljava/lang/String;)V
+	public abstract fun setRegionProvider (Laws/smithy/kotlin/runtime/client/region/RegionProvider;)V
+	public abstract fun setUseDualStack (Ljava/lang/Boolean;)V
+	public abstract fun setUseFips (Ljava/lang/Boolean;)V
+}
+
+public final class aws/sdk/kotlin/runtime/config/AwsSdkClientOption {
+	public static final field INSTANCE Laws/sdk/kotlin/runtime/config/AwsSdkClientOption;
+	public final fun getApplicationId ()Laws/smithy/kotlin/runtime/collections/AttributeKey;
+}
+
+public final class aws/sdk/kotlin/runtime/config/AwsSdkSetting {
+	public static final field INSTANCE Laws/sdk/kotlin/runtime/config/AwsSdkSetting;
+	public final fun getAwsAccessKeyId ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsAccountId ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsAccountIdEndpointMode ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsAppId ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsAuthSchemePreference ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsConfigFile ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsContainerAuthorizationToken ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsContainerAuthorizationTokenFile ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsContainerCredentialsFullUri ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsContainerCredentialsRelativeUri ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsDisableRequestCompression ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsEc2MetadataDisabled ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsEc2MetadataServiceEndpoint ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsEc2MetadataServiceEndpointMode ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsEndpointDiscoveryEnabled ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsEndpointUrl ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsExecutionEnv ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsIgnoreEndpointUrls ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsMaxAttempts ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsProfile ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsRegion ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsRequestChecksumCalculation ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsRequestMinCompressionSizeBytes ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsResponseChecksumValidation ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsRetryMode ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsRoleArn ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsRoleSessionName ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsSecretAccessKey ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsSessionToken ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsSharedCredentialsFile ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsSigV4aSigningRegionSet ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsUseDualStackEndpoint ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsUseFipsEndpoint ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+	public final fun getAwsWebIdentityTokenFile ()Laws/smithy/kotlin/runtime/config/EnvironmentSetting;
+}
+
+public final class aws/sdk/kotlin/runtime/config/AwsSdkSettingKt {
+	public static final fun resolveEndpointUrl (Laws/sdk/kotlin/runtime/config/AwsSdkSetting;Laws/smithy/kotlin/runtime/util/PlatformProvider;Ljava/lang/String;Ljava/lang/String;)Laws/smithy/kotlin/runtime/net/url/Url;
+}
+
+public final class aws/sdk/kotlin/runtime/config/auth/ResolveAuthSchemePreferenceKt {
+	public static final fun resolveAuthSchemePreference (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveAuthSchemePreference$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/checksums/ResolveFlexibleChecksumsConfigKt {
+	public static final fun resolveRequestChecksumCalculation (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveRequestChecksumCalculation$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun resolveResponseChecksumValidation (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveResponseChecksumValidation$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/compression/RequestCompressionResolversKt {
+	public static final fun resolveDisableRequestCompression (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveDisableRequestCompression$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun resolveRequestMinCompressionSizeBytes (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveRequestMinCompressionSizeBytes$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode : java/lang/Enum {
+	public static final field DISABLED Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;
+	public static final field PREFERRED Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;
+	public static final field REQUIRED Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;
+	public static fun values ()[Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;
+}
+
+public final class aws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointModeKt {
+	public static final fun toBusinessMetric (Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;)Laws/smithy/kotlin/runtime/businessmetrics/BusinessMetric;
+}
+
+public final class aws/sdk/kotlin/runtime/config/endpoints/ResolversKt {
+	public static final fun resolveAccountId (Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;Laws/smithy/kotlin/runtime/collections/Attributes;)Ljava/lang/String;
+	public static final fun resolveAccountIdEndpointMode (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveAccountIdEndpointMode$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun resolveEndpointDiscoveryEnabled (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveEndpointDiscoveryEnabled$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun resolveEndpointUrl (Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveEndpointUrl$default (Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Laws/smithy/kotlin/runtime/util/PlatformProvider;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun resolveUseDualStack (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveUseDualStack$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun resolveUseFips (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveUseFips$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/EC2MetadataError : aws/sdk/kotlin/runtime/AwsServiceException {
+	public fun <init> (ILjava/lang/String;)V
+	public fun <init> (Laws/smithy/kotlin/runtime/http/HttpStatusCode;Ljava/lang/String;)V
+	public final fun getStatus ()Laws/smithy/kotlin/runtime/http/HttpStatusCode;
+	public final fun getStatusCode ()I
+}
+
+public abstract class aws/sdk/kotlin/runtime/config/imds/EndpointConfiguration {
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$Custom : aws/sdk/kotlin/runtime/config/imds/EndpointConfiguration {
+	public fun <init> (Laws/smithy/kotlin/runtime/client/endpoints/Endpoint;)V
+	public final fun component1 ()Laws/smithy/kotlin/runtime/client/endpoints/Endpoint;
+	public final fun copy (Laws/smithy/kotlin/runtime/client/endpoints/Endpoint;)Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$Custom;
+	public static synthetic fun copy$default (Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$Custom;Laws/smithy/kotlin/runtime/client/endpoints/Endpoint;ILjava/lang/Object;)Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$Custom;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEndpoint ()Laws/smithy/kotlin/runtime/client/endpoints/Endpoint;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$Default : aws/sdk/kotlin/runtime/config/imds/EndpointConfiguration {
+	public static final field INSTANCE Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$Default;
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$ModeOverride : aws/sdk/kotlin/runtime/config/imds/EndpointConfiguration {
+	public fun <init> (Laws/sdk/kotlin/runtime/config/imds/EndpointMode;)V
+	public final fun component1 ()Laws/sdk/kotlin/runtime/config/imds/EndpointMode;
+	public final fun copy (Laws/sdk/kotlin/runtime/config/imds/EndpointMode;)Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$ModeOverride;
+	public static synthetic fun copy$default (Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$ModeOverride;Laws/sdk/kotlin/runtime/config/imds/EndpointMode;ILjava/lang/Object;)Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration$ModeOverride;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMode ()Laws/sdk/kotlin/runtime/config/imds/EndpointMode;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/EndpointMode : java/lang/Enum {
+	public static final field Companion Laws/sdk/kotlin/runtime/config/imds/EndpointMode$Companion;
+	public static final field IPv4 Laws/sdk/kotlin/runtime/config/imds/EndpointMode;
+	public static final field IPv6 Laws/sdk/kotlin/runtime/config/imds/EndpointMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Laws/sdk/kotlin/runtime/config/imds/EndpointMode;
+	public static fun values ()[Laws/sdk/kotlin/runtime/config/imds/EndpointMode;
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/EndpointMode$Companion {
+	public final fun fromValue (Ljava/lang/String;)Laws/sdk/kotlin/runtime/config/imds/EndpointMode;
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/ImdsClient : aws/sdk/kotlin/runtime/config/imds/InstanceMetadataProvider {
+	public static final field Companion Laws/sdk/kotlin/runtime/config/imds/ImdsClient$Companion;
+	public fun <init> ()V
+	public synthetic fun <init> (Laws/sdk/kotlin/runtime/config/imds/ImdsClient$Builder;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/ImdsClient$Builder {
+	public fun <init> ()V
+	public final fun getEndpointConfiguration ()Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration;
+	public final fun getLogMode ()Laws/smithy/kotlin/runtime/client/LogMode;
+	public final fun getMaxRetries ()I
+	public final fun getTokenTtl-UwyO8pc ()J
+	public final fun setEndpointConfiguration (Laws/sdk/kotlin/runtime/config/imds/EndpointConfiguration;)V
+	public final fun setLogMode (Laws/smithy/kotlin/runtime/client/LogMode;)V
+	public final fun setMaxRetries (I)V
+	public final fun setTokenTtl-LRDsOJo (J)V
+}
+
+public final class aws/sdk/kotlin/runtime/config/imds/ImdsClient$Companion {
+	public final fun invoke (Lkotlin/jvm/functions/Function1;)Laws/sdk/kotlin/runtime/config/imds/ImdsClient;
+}
+
+public abstract interface class aws/sdk/kotlin/runtime/config/imds/InstanceMetadataProvider : java/io/Closeable {
+	public abstract fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsConfigLoaderKt {
+	public static final fun loadAwsSharedConfig (Laws/smithy/kotlin/runtime/util/PlatformProvider;Ljava/lang/String;Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun loadAwsSharedConfig$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Ljava/lang/String;Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsConfigParseException : aws/sdk/kotlin/runtime/ConfigurationException {
+	public fun <init> (Ljava/lang/String;I)V
+}
+
+public abstract class aws/sdk/kotlin/runtime/config/profile/AwsConfigValue {
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsConfigValue$Map : aws/sdk/kotlin/runtime/config/profile/AwsConfigValue, java/util/Map, kotlin/jvm/internal/markers/KMappedMarker {
+	public fun <init> (Ljava/util/Map;)V
+	public fun clear ()V
+	public final fun component1 ()Ljava/util/Map;
+	public synthetic fun compute (Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
+	public fun compute (Ljava/lang/String;Ljava/util/function/BiFunction;)Ljava/lang/String;
+	public synthetic fun computeIfAbsent (Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+	public fun computeIfAbsent (Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/String;
+	public synthetic fun computeIfPresent (Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
+	public fun computeIfPresent (Ljava/lang/String;Ljava/util/function/BiFunction;)Ljava/lang/String;
+	public final fun containsKey (Ljava/lang/Object;)Z
+	public fun containsKey (Ljava/lang/String;)Z
+	public final fun containsValue (Ljava/lang/Object;)Z
+	public fun containsValue (Ljava/lang/String;)Z
+	public final fun copy (Ljava/util/Map;)Laws/sdk/kotlin/runtime/config/profile/AwsConfigValue$Map;
+	public static synthetic fun copy$default (Laws/sdk/kotlin/runtime/config/profile/AwsConfigValue$Map;Ljava/util/Map;ILjava/lang/Object;)Laws/sdk/kotlin/runtime/config/profile/AwsConfigValue$Map;
+	public final fun entrySet ()Ljava/util/Set;
+	public fun equals (Ljava/lang/Object;)Z
+	public final synthetic fun get (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/Object;)Ljava/lang/String;
+	public fun get (Ljava/lang/String;)Ljava/lang/String;
+	public fun getEntries ()Ljava/util/Set;
+	public fun getKeys ()Ljava/util/Set;
+	public fun getSize ()I
+	public final fun getValue ()Ljava/util/Map;
+	public fun getValues ()Ljava/util/Collection;
+	public fun hashCode ()I
+	public fun isEmpty ()Z
+	public final fun keySet ()Ljava/util/Set;
+	public synthetic fun merge (Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
+	public fun merge (Ljava/lang/String;Ljava/lang/String;Ljava/util/function/BiFunction;)Ljava/lang/String;
+	public synthetic fun put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public fun put (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public fun putAll (Ljava/util/Map;)V
+	public synthetic fun putIfAbsent (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public fun putIfAbsent (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public synthetic fun remove (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun remove (Ljava/lang/Object;)Ljava/lang/String;
+	public fun remove (Ljava/lang/Object;Ljava/lang/Object;)Z
+	public synthetic fun replace (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public synthetic fun replace (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+	public fun replace (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public fun replace (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+	public fun replaceAll (Ljava/util/function/BiFunction;)V
+	public final fun size ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun values ()Ljava/util/Collection;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsConfigValue$String : aws/sdk/kotlin/runtime/config/profile/AwsConfigValue {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Laws/sdk/kotlin/runtime/config/profile/AwsConfigValue$String;
+	public static synthetic fun copy$default (Laws/sdk/kotlin/runtime/config/profile/AwsConfigValue$String;Ljava/lang/String;ILjava/lang/Object;)Laws/sdk/kotlin/runtime/config/profile/AwsConfigValue$String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;
+	public static synthetic fun copy$default (Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Laws/sdk/kotlin/runtime/config/profile/AwsConfigurationSource;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConfigPath ()Ljava/lang/String;
+	public final fun getCredentialsPath ()Ljava/lang/String;
+	public final fun getProfile ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsProfileKt {
+	public static final fun getAccountIdEndpointMode (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Laws/sdk/kotlin/runtime/config/endpoints/AccountIdEndpointMode;
+	public static final fun getAuthSchemePreference (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getAwsAccessKeyId (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getAwsSecretAccessKey (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getAwsSessionToken (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getBooleanOrNull (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Boolean;
+	public static synthetic fun getBooleanOrNull$default (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/Boolean;
+	public static final fun getCredentialProcess (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getDisableRequestCompression (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/Boolean;
+	public static final fun getEndpointDiscoveryEnabled (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/Boolean;
+	public static final fun getEndpointUrl (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Laws/smithy/kotlin/runtime/net/url/Url;
+	public static final fun getIgnoreEndpointUrls (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/Boolean;
+	public static final fun getIntOrNull (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Integer;
+	public static synthetic fun getIntOrNull$default (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/Integer;
+	public static final fun getLongOrNull (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Long;
+	public static synthetic fun getLongOrNull$default (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/Long;
+	public static final fun getMaxAttempts (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/Integer;
+	public static final fun getRegion (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getRequestChecksumCalculation (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Laws/smithy/kotlin/runtime/client/config/RequestHttpChecksumConfig;
+	public static final fun getRequestMinCompressionSizeBytes (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/Long;
+	public static final fun getResponseChecksumValidation (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Laws/smithy/kotlin/runtime/client/config/ResponseHttpChecksumConfig;
+	public static final fun getRetryMode (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Laws/smithy/kotlin/runtime/client/config/RetryMode;
+	public static final fun getRoleArn (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getSdkUserAgentAppId (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getServicesSection (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getSigV4aSigningRegionSet (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getSourceProfile (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/String;
+	public static final fun getUseDualStack (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/Boolean;
+	public static final fun getUseFips (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;)Ljava/lang/Boolean;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsSharedConfig {
+	public final fun getActiveProfile ()Laws/sdk/kotlin/runtime/config/profile/ConfigSection;
+	public final fun getProfiles ()Ljava/util/Map;
+	public final fun getServices ()Ljava/util/Map;
+	public final fun getSsoSessions ()Ljava/util/Map;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/AwsSharedConfigKt {
+	public static final fun resolveEndpointUrl (Laws/sdk/kotlin/runtime/config/profile/AwsSharedConfig;Ljava/lang/String;)Laws/smithy/kotlin/runtime/net/url/Url;
+}
+
+public final class aws/sdk/kotlin/runtime/config/profile/ConfigSection {
+	public final fun component1 ()Ljava/lang/String;
+	public final fun contains (Ljava/lang/String;)Z
+	public final fun copy (Ljava/lang/String;Ljava/util/Map;Laws/sdk/kotlin/runtime/config/profile/ConfigSectionType;)Laws/sdk/kotlin/runtime/config/profile/ConfigSection;
+	public static synthetic fun copy$default (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/util/Map;Laws/sdk/kotlin/runtime/config/profile/ConfigSectionType;ILjava/lang/Object;)Laws/sdk/kotlin/runtime/config/profile/ConfigSection;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOrNull (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun getOrNull$default (Laws/sdk/kotlin/runtime/config/profile/ConfigSection;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class aws/sdk/kotlin/runtime/config/retries/ResolveRetryStrategyKt {
+	public static final fun resolveRetryStrategy (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveRetryStrategy$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/config/useragent/ResolveUserAgentKt {
+	public static final fun resolveUserAgentAppId (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveUserAgentAppId$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/region/DefaultRegionProviderChain : aws/smithy/kotlin/runtime/client/region/RegionProviderChain, aws/smithy/kotlin/runtime/client/region/RegionProvider, java/io/Closeable {
+	public fun <init> ()V
+	public fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Lkotlin/Lazy;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/util/PlatformProvider;Lkotlin/Lazy;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+}
+
+public final class aws/sdk/kotlin/runtime/region/EnvironmentRegionProvider : aws/smithy/kotlin/runtime/client/region/RegionProvider {
+	public fun <init> ()V
+	public fun <init> (Laws/smithy/kotlin/runtime/util/EnvironmentProvider;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/util/EnvironmentProvider;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getRegion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/region/ImdsRegionProvider : aws/smithy/kotlin/runtime/client/region/RegionProvider, java/io/Closeable {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/Lazy;Laws/smithy/kotlin/runtime/util/PlatformEnvironProvider;)V
+	public synthetic fun <init> (Lkotlin/Lazy;Laws/smithy/kotlin/runtime/util/PlatformEnvironProvider;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public fun getRegion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/region/JvmSystemPropRegionProvider : aws/smithy/kotlin/runtime/client/region/RegionProvider {
+	public fun <init> ()V
+	public fun <init> (Laws/smithy/kotlin/runtime/util/PropertyProvider;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/util/PropertyProvider;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getRegion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/region/ProfileRegionProvider : aws/smithy/kotlin/runtime/client/region/RegionProvider {
+	public fun <init> ()V
+	public fun <init> (Laws/smithy/kotlin/runtime/util/LazyAsyncValue;)V
+	public synthetic fun <init> (Laws/smithy/kotlin/runtime/util/LazyAsyncValue;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;)V
+	public fun getRegion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class aws/sdk/kotlin/runtime/region/ResolveRegionKt {
+	public static final fun resolveRegion (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveRegion$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun resolveSigV4aSigningRegionSet (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resolveSigV4aSigningRegionSet$default (Laws/smithy/kotlin/runtime/util/PlatformProvider;Laws/smithy/kotlin/runtime/util/LazyAsyncValue;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
